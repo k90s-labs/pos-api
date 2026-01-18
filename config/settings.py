@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # domain
     "apps.products",
     "apps.categories",
+    "apps.suppliers",
 
 ]
 

@@ -31,7 +31,13 @@ class Product(models.Model):
     )
 
     # Supplier
-    supplier = models.CharField(max_length=255, null=False, blank=False)
+    supplier = models.ForeignKey(
+        "suppliers.Supplier",
+        on_delete=models.PROTECT,
+        related_name="products",
+        null=False,
+        blank=False,
+    )
 
     # Stock
     is_stock_managed = models.BooleanField(null=False)
