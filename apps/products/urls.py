@@ -1,5 +1,6 @@
-from django.urls import path
-from .views import product_detail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import ProductViewSet
 
 # Django의 urls.py는 “이 URL이 오면 → 이 함수로 보내라” 라는 순수 매핑 테이블.
 # 브라우저 / 클라이언트
@@ -10,7 +11,9 @@ from .views import product_detail
 #    ↓
 # views.py         ← (실제 로직)
 
+router = DefaultRouter()
+router.register(r"products", ProductViewSet, basename="product")
 
 urlpatterns = [
-    path("<int:product_id>/", product_detail, name="product-detail"),
+    path("", include(router.urls)),
 ]
