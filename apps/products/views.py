@@ -1,5 +1,10 @@
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
+
 from .models import Product
 from .serializers import ProductSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -36,3 +41,26 @@ class ProductViewSet(viewsets.ModelViewSet):
     # (선택) 정렬 허용 필드
     ordering_fields = ["id", "name_en", "name_ko", "sale_price", "created_at", "updated_at"]
     ordering = ["-id"]
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(name="barcode", type=str, required=True, location=OpenApiParameter.QUERY),
+        ]
+    )
+
+    @action(detail=False, methods=["get"], url_path="barcode")
+    def barcode_search(self, request):
+        barcode = request.query_params.get("barcode")
+        if not barcode:
+            raise ValidationError({"barcode": "This query parameter is required."})
+
+        qs = self.get_queryset().filter(barcode=barcode)
+        data = self.get_serializer(qs, many=True).data
+
+        return Response(
+            {
+                "count": len(data),
+                "results": data,
+            }
+        )
+
