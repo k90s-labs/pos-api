@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.db import IntegrityError
 
-from apps.members.utils import generate_member_id
+from members.utils import generate_member_id
 from .models import Member
 
 
