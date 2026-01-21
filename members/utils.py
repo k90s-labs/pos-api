@@ -1,7 +1,5 @@
 import re
-from typing import Optional
 
-from django.db import transaction
 from django.db.models import F
 from .models import Member
 
