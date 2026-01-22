@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "categories",
     "suppliers",
     "members",
+    "sales",
 
 ]
 
