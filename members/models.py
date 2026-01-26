@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from core.models import TimeStampedModel
 
 
-class Member(models.Model):
+class Member(TimeStampedModel):
 
     # Default Info
     name = models.CharField(max_length=100, null=False, blank=False)
@@ -17,10 +18,6 @@ class Member(models.Model):
 
     # Points (1000pt = $1)
     points = models.IntegerField(default=0, null=False, blank=False)
-
-    # Audit
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "members"

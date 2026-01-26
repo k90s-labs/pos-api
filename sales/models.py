@@ -4,9 +4,10 @@ from django.utils import timezone
 
 from members.models import Member
 from products.models import Product
+from core.models import TimeStampedModel
 
 
-class Sale(models.Model):
+class Sale(TimeStampedModel):
     member = models.ForeignKey(
         Member,
         on_delete=models.SET_NULL,
@@ -35,9 +36,6 @@ class Sale(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="PAID")
 
     sold_at = models.DateTimeField(default=timezone.now)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "sales"

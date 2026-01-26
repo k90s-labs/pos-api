@@ -1,7 +1,8 @@
 from django.db import models
+from core.models import TimeStampedModel
 
 
-class Category(models.Model):
+class Category(TimeStampedModel):
     name_en = models.CharField(max_length=255, null=False, blank=False)
     name_ko = models.CharField(max_length=255, null=False, blank=False)
 
@@ -15,9 +16,6 @@ class Category(models.Model):
 
     is_active = models.BooleanField(default=True)
     sort_order = models.IntegerField(null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "categories"

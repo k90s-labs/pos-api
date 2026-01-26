@@ -1,8 +1,9 @@
 # suppliers/models.py
 from django.db import models
+from core.models import TimeStampedModel
 
 
-class Supplier(models.Model):
+class Supplier(TimeStampedModel):
     supplier_name = models.CharField(max_length=255, null=False, blank=False)
 
     abn = models.CharField(
@@ -24,9 +25,6 @@ class Supplier(models.Model):
     postcode = models.CharField(max_length=20, null=True, blank=True)
 
     note = models.TextField(null=True, blank=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "suppliers"

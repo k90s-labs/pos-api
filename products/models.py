@@ -1,9 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
+from core.models import TimeStampedModel
 
-
-class Product(models.Model):
+class Product(TimeStampedModel):
     # Category
     category = models.ForeignKey(
         "categories.Category",     # app_label.ModelName
@@ -63,10 +63,6 @@ class Product(models.Model):
 
     # Optional
     nickname = models.CharField(max_length=255, null=True, blank=True)
-
-    # Audit
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "products"
