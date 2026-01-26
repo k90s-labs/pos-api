@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework import serializers
 
 from .models import Sale, SaleItem
-from products.models import Product
+from apps.products.models import Product
 
 
 class SaleItemSerializer(serializers.ModelSerializer):

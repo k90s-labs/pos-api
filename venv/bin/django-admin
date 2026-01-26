@@ -1,4 +1,4 @@
-#!/Users/choiyesora/sora/django26/pos/venv/bin/python
+#!/Users/choiyesora/sora/django26/pos_api/venv/bin/python3
 import sys
 from django.core.management import execute_from_command_line
 if __name__ == '__main__':

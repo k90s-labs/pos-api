@@ -2,8 +2,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
-from members.models import Member
-from products.models import Product
+from apps.members.models import Member
+from apps.products.models import Product
 from core.models import TimeStampedModel
 
 

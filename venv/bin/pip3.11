@@ -1,4 +1,4 @@
-#!/Users/choiyesora/sora/django26/pos/venv/bin/python3.11
+#!/Users/choiyesora/sora/django26/pos_api/venv/bin/python3.11
 import sys
 from pip._internal.cli.main import main
 if __name__ == '__main__':

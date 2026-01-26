@@ -1,4 +1,4 @@
-# suppliers/models.py
+# suppliers/catalogs.py
 from django.db import models
 from core.models import TimeStampedModel
 

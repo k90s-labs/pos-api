@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     "rest_framework",
 
     # domain
-    "categories",
-    "members",
-    "products",
-    "sales",
-    "suppliers",
+    "apps.categories",
+    "apps.members",
+    "apps.products",
+    "apps.sales",
+    "apps.suppliers",
+    "apps.sales_catalogs"
+
 
 ]
 

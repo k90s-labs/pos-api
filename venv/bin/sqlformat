@@ -1,4 +1,4 @@
-#!/Users/choiyesora/sora/django26/pos/venv/bin/python
+#!/Users/choiyesora/sora/django26/pos_api/venv/bin/python3
 import sys
 from sqlparse.__main__ import main
 if __name__ == '__main__':
